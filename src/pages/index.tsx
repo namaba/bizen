@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { Box, chakra } from '@chakra-ui/react'
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Box>
+      <chakra.h1 color="tomato">Hello World</chakra.h1>
+    </Box>
   )
 }
