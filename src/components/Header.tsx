@@ -1,23 +1,18 @@
 import { ChevronDownIcon, Search2Icon, SettingsIcon } from '@chakra-ui/icons'
 import {
-  Box,
-  Text,
-  Flex,
-  Stack,
   Button,
-  useColorModeValue,
-  useBreakpointValue,
-  HStack,
   Heading,
+  HStack,
+  IconButton,
   Menu,
   MenuButton,
-  MenuList,
+  MenuDivider,
   MenuItem,
-  IconButton,
+  MenuList,
 } from '@chakra-ui/react'
-import React, { FC } from 'react'
+import React from 'react'
 
-const MenuBtn = () => {
+const MenuSection = () => {
   return (
     <Menu>
       <MenuButton
@@ -54,7 +49,7 @@ export const Header = () => {
         <Button colorScheme="orange" size="sm">
           質問する
         </Button>
-        <MenuBtn />
+        <MenuSection />
       </HStack>
     </HStack>
   )
