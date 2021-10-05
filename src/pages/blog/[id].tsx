@@ -1,36 +1,46 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { client } from '../../lib/client'
+import Image from 'next/image'
+import { Blog, BlogListGetResponse } from 'src/types/blog'
+import React from 'react'
+import { Badge, Box, Flex, HStack, SimpleGrid } from '@chakra-ui/layout'
 
 export default function BlogId({ blog }: { blog: Blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.pulishedAt}</p>
+    <Box as="main">
+        <Box w="46%" bg="tomato" height="80px" m="2%">
+          {/* <Image
+            src={blog.topImage.url}
+            alt="トップ画像"
+            width="100px"
+            height="100px"
+          /> */}
+        </Box>
+        <Box w="46%" bg="tomato" height="80px" m="2%"></Box>
+        <Box w="45%" bg="tomato" height="80px"></Box>
+        <Box w="45%" bg="tomato" height="80px"></Box>
+        <Box w="45%" bg="tomato" height="80px"></Box>
+      {/* <h1>{blog.title}</h1>
+      <p>{blog.updatedAt}</p>
+      <p>{blog.category && blog.category.name}</p>
+      <Image
+        src={blog.topImage.url}
+        alt="トップ画像"
+        width="500"
+        height="500"
+      />
+
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
         }}
-      />
-    </main>
+      /> */}
+    </Box>
   )
 }
 
-type Blog = {
-  id: string
-  title: string
-  body: string
-  pulishedAt: string
-}
-
-type BlogListReponse = {
-  contents: Blog[]
-  totalCount: string
-  offset: number
-  limit: number
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.get<BlogListReponse>({ endpoint: 'blog' })
+  const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
 
   const paths = data.contents.map((content) => ({
     params: { id: content.id },
