@@ -8,18 +8,11 @@ import { Badge, Box, Flex, HStack, SimpleGrid } from '@chakra-ui/layout'
 export default function BlogId({ blog }: { blog: Blog }) {
   return (
     <Box as="main">
-        <Box w="46%" bg="tomato" height="80px" m="2%">
-          {/* <Image
-            src={blog.topImage.url}
-            alt="トップ画像"
-            width="100px"
-            height="100px"
-          /> */}
-        </Box>
-        <Box w="46%" bg="tomato" height="80px" m="2%"></Box>
-        <Box w="45%" bg="tomato" height="80px"></Box>
-        <Box w="45%" bg="tomato" height="80px"></Box>
-        <Box w="45%" bg="tomato" height="80px"></Box>
+      <Box w="46%" bg="tomato" height="80px" m="2%"></Box>
+      <Box w="46%" bg="tomato" height="80px" m="2%"></Box>
+      <Box w="45%" bg="tomato" height="80px"></Box>
+      <Box w="45%" bg="tomato" height="80px"></Box>
+      <Box w="45%" bg="tomato" height="80px"></Box>
       {/* <h1>{blog.title}</h1>
       <p>{blog.updatedAt}</p>
       <p>{blog.category && blog.category.name}</p>
