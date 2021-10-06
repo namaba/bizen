@@ -1,4 +1,5 @@
-import { Box } from '@chakra-ui/layout'
+import { Badge, Box, Divider, VStack } from '@chakra-ui/layout'
+import { Link } from '@chakra-ui/react'
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import React, { VFC } from 'react'
@@ -10,8 +11,8 @@ type BlogCardProps = {
 }
 
 const BlogCard: VFC<BlogCardProps> = ({ blog }) => (
-  <Box>
-    <Box position="relative" w="690px" h="480px" borderRadius="full">
+  <Link w="345px" href={blog.url}>
+    <Box position="relative" w="345px" h="240px" borderRadius="full">
       <Image
         src={blog.topImage.url}
         alt="サイトトップの画像"
@@ -19,8 +20,33 @@ const BlogCard: VFC<BlogCardProps> = ({ blog }) => (
         objectFit="contain"
       />
     </Box>
-    <Box>テスト</Box>
-  </Box>
+    <Box p="3">
+      <Box d="flex" alignItems="baseline">
+        <Badge borderRadius="full" px="2" colorScheme="teal">
+          Fashion
+        </Badge>
+        <Box
+          color="gray.500"
+          fontWeight="semibold"
+          letterSpacing="wide"
+          fontSize="xs"
+          textTransform="uppercase"
+          ml="2"
+        >
+          Women &bull; 小柄
+        </Box>
+      </Box>
+      <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+        COHINA
+      </Box>
+      <Box>
+        あなたに陽が当たる服 <br />
+        COHINAは“小柄女性の美しさ”を追求し
+        日々を自分らしく過ごせる服を贈るブランドです。
+      </Box>
+    </Box>
+    <Divider orientation="horizontal" />
+  </Link>
 )
 
 type FashionProps = {
@@ -29,13 +55,13 @@ type FashionProps = {
 
 const Fashion: VFC<FashionProps> = ({ blogs }) => {
   return (
-    <Box p="5">
+    <VStack py="4" spacing="3">
       {blogs.map((blog, idx) => (
         <>
           <BlogCard blog={blog} key={idx} />
         </>
       ))}
-    </Box>
+    </VStack>
   )
 }
 

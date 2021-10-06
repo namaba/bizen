@@ -10,6 +10,7 @@ type BlogSchema = {
   body: string
   category: Category
   topImage: MicroCmsImageItem
+  url: string
 }
 
 export type Blog = MicroCmsItemGetRes<BlogSchema>
