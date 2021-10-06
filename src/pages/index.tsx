@@ -5,6 +5,7 @@ import { Footer } from 'src/components/footer'
 import Link from 'next/link'
 import { client } from '../lib/client'
 import { GetStaticProps } from 'next'
+import { Blog, BlogListGetResponse } from 'src/types/blog'
 
 export default function Home({ blogs }: { blogs: Blog[] }) {
   return (
@@ -27,21 +28,8 @@ export default function Home({ blogs }: { blogs: Blog[] }) {
   )
 }
 
-type Blog = {
-  id: string
-  title: string
-  body: string
-}
-
-type BlogListReponse = {
-  contents: Blog[]
-  totalCount: string
-  offset: number
-  limit: number
-}
-
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get<BlogListReponse>({ endpoint: 'blog' })
+  const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
 
   return {
     props: {
