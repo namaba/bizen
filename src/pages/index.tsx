@@ -1,31 +1,25 @@
-import React from 'react'
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 import {
   Box,
   Center,
-  chakra,
   Heading,
-  Icon,
+  HStack,
+  Link,
   SimpleGrid,
   Stack,
-  VStack,
 } from '@chakra-ui/react'
-import { Header } from 'src/components/Header'
-import { Footer } from 'src/components/footer'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
+import React from 'react'
+import AppPageLayout from 'src/components/layout/AppPageLayout'
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <Box bg="gray.100">
-        <Stack p={5} spacing={6} maxW="container.lg">
-          <QandA />
-          <Column />
-        </Stack>
-      </Box>
-      <Footer />
-    </>
+    <AppPageLayout>
+      <Stack p={5} spacing={6} maxW="container.lg" bg="gray.100">
+        <QandA />
+        <Column />
+      </Stack>
+    </AppPageLayout>
   )
 }
 
@@ -42,24 +36,13 @@ const CardList = ({ title }: { title: string }) => (
       spacingY={4}
       w="full"
     >
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
+      {[...Array(6)].map((_, i) => {
+        return (
+          <Box boxShadow="sm" p="6" rounded="md" bg="white" key={i}>
+            Base {i}
+          </Box>
+        )
+      })}
     </SimpleGrid>
     <Center>
       <NextLink href="/">

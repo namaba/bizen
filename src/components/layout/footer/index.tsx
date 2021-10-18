@@ -5,7 +5,7 @@ import { LinkGrid } from './LinkGrid'
 import { SocialMediaLinks } from './SocialMediaLinks'
 import { SubscribeForm } from './SubscribeForm'
 
-export const Footer = () => (
+const Footer = () => (
   <Box
     as="footer"
     role="contentinfo"
@@ -39,3 +39,5 @@ export const Footer = () => (
     </Stack>
   </Box>
 )
+
+export default Footer
