@@ -1,73 +1,39 @@
+import { Box, chakra } from '@chakra-ui/react'
+import { GetStaticProps } from 'next'
+import Link from 'next/link'
 import React from 'react'
-import {
-  Box,
-  Center,
-  chakra,
-  Heading,
-  Icon,
-  SimpleGrid,
-  Stack,
-  VStack,
-} from '@chakra-ui/react'
-import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/footer'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
-import NextLink from 'next/link'
+import { Header } from 'src/components/Header'
+import { Blog, BlogListGetResponse } from 'src/types/blog'
+import { client } from '../lib/client'
 
-export default function Home() {
+export default function Home({ blogs }: { blogs: Blog[] }) {
   return (
     <>
       <Header />
-      <Box bg="gray.100">
-        <Stack p={5} spacing={6} maxW="container.lg">
-          <QandA />
-          <Column />
-        </Stack>
+      <Box>
+        <chakra.h1 color="tomato">Hello World</chakra.h1>
+        <ul>
+          {blogs.map((blog) => (
+            <li key={blog.id}>
+              <Link href={`/blog/${blog.id}`}>
+                <a>{blog.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Box>
       <Footer />
     </>
   )
 }
 
-const Column = () => <CardList title="コラム" />
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
 
-const QandA = () => <CardList title="質問" />
-
-const CardList = ({ title }: { title: string }) => (
-  <>
-    <Heading>{title}</Heading>
-    <SimpleGrid
-      columns={{ base: 1, md: 2 }}
-      spacingX={{ base: 1, md: 8 }}
-      spacingY={4}
-      w="full"
-    >
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-      <Box boxShadow="sm" p="6" rounded="md" bg="white">
-        Base
-      </Box>
-    </SimpleGrid>
-    <Center>
-      <NextLink href="/">
-        <a>
-          もっとみる
-          <ArrowForwardIcon />
-        </a>
-      </NextLink>
-    </Center>
-  </>
-)
+  return {
+    props: {
+      blogs: data.contents,
+    },
+  }
+}
