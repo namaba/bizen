@@ -21,12 +21,7 @@ export const BrandTop = () => {
 
 const BrandContent = ({ brand }: { brand: Brand }) => (
   <Box w="full">
-    <Image
-      src={`/${imgSrc}.jpg`}
-      width="393px"
-      height="205px"
-      alt={brand.alt}
-    />
+    <Image src={`/${imgSrc}.jpg`} width="393px" height="205px" alt="" />
     <Heading as="h3" size="md" mb={2}>
       {brand.name}
     </Heading>
