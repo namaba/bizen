@@ -50,10 +50,10 @@ export default function Home() {
 //     },
 //   }
 
-  // const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
-  // return {
-  //   props: {
-  //     blogs: data.contents,
-  //   },
-  // }
-}
+// const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
+// return {
+//   props: {
+//     blogs: data.contents,
+//   },
+// }
+// }
