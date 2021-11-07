@@ -1,19 +1,29 @@
-import { Box, chakra } from '@chakra-ui/react'
+import { Box, chakra, VStack, Text, HStack } from '@chakra-ui/react'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
 import { Footer } from 'src/components/footer'
 import { Header } from 'src/components/Header'
 import { Blog, BlogListGetResponse } from 'src/types/blog'
 import { client } from '../lib/client'
+import { ShopCard } from 'src/components/shop'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Box>
-        <chakra.h1 color="tomato">Hello World</chakra.h1>
-      </Box>
+      <VStack bgColor="gray.200" spacing={4}>
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+        <ShopCard />
+      </VStack>
       <Footer />
     </>
   )
