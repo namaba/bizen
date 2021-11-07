@@ -7,14 +7,12 @@ import { Header } from 'src/components/Header'
 import { Blog, BlogListGetResponse } from 'src/types/blog'
 import { client } from '../lib/client'
 
-export default function Home(props: { hogehoge: string }) {
+export default function Home() {
   return (
     <>
       <Header />
       <Box>
         <chakra.h1 color="tomato">Hello World</chakra.h1>
-        {/* {props} */}
-        {props.hogehoge}
       </Box>
       <Footer />
     </>
@@ -43,14 +41,14 @@ export default function Home(props: { hogehoge: string }) {
 //   )
 // }
 
-export const getStaticProps: GetStaticProps<{ hogehoge: any }> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
-  const data = await res.json()
-  return {
-    props: {
-      hogehoge: data.hogehoge,
-    },
-  }
+// export const getStaticProps: GetStaticProps<{ hogehoge: any }> = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`)
+//   const data = await res.json()
+//   return {
+//     props: {
+//       hogehoge: data.hogehoge,
+//     },
+//   }
 
   // const data = await client.get<BlogListGetResponse>({ endpoint: 'blog' })
   // return {

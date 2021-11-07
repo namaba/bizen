@@ -12,9 +12,9 @@ export const BrandTop = () => {
       <Heading as="h1" size="lg">
         BRAND
       </Heading>
-      {brands.map((brand) => (
+      {/* {brands.map((brand) => (
         <BrandContent brand={brand} key={brand.name} />
-      ))}
+      ))} */}
     </VStack>
   )
 }
