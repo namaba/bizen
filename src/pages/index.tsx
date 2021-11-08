@@ -12,19 +12,17 @@ import { ShopCard } from 'src/components/shop'
 export default function Home() {
   return (
     <>
-      {/* <Header /> */}
       <VStack bgColor="gray.200" spacing={4}>
         <ShopCard />
-        {/* <ShopCard />
         <ShopCard />
         <ShopCard />
         <ShopCard />
         <ShopCard />
         <ShopCard />
         <ShopCard />
-        <ShopCard /> */}
+        <ShopCard />
+        <ShopCard />
       </VStack>
-      {/* <Footer /> */}
     </>
   )
 }
