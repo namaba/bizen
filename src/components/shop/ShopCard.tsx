@@ -1,8 +1,8 @@
-import { Box, Text, HStack, Stack, Avatar } from '@chakra-ui/react'
-import React from 'react'
+import { MoonIcon } from '@chakra-ui/icons'
+import { Avatar, Box, HStack, Stack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
+import React from 'react'
 import { RatingStar } from './RatingStar'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 export const ShopCard: React.VFC<{}> = () => {
   const fee = 2000
