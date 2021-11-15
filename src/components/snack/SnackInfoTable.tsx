@@ -10,6 +10,7 @@ import {
   Tr,
 } from '@chakra-ui/react'
 import React from 'react'
+import GoogleMap from 'src/components/ui/GoogleMap'
 
 export const ShopInfoTable = ({ snack }: { snack: any }) => {
   return (
@@ -23,6 +24,7 @@ export const ShopInfoTable = ({ snack }: { snack: any }) => {
       >
         店舗情報
       </Text>
+      <GoogleMap />
       <Table variant="simple" size="sm">
         <Tbody>
           <Tr>
