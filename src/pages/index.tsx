@@ -7,23 +7,21 @@ import { Footer } from 'src/components/footer'
 import { Header } from 'src/components/Header'
 import { Blog, BlogListGetResponse } from 'src/types/blog'
 import { client } from '../lib/client'
-import { ShopCard } from 'src/components/shop'
+import { ShopCard } from 'src/components/snack'
 
 export default function Home() {
   return (
-    <>
-      <VStack bgColor="gray.200" spacing={4}>
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-        <ShopCard />
-      </VStack>
-    </>
+    <VStack bgColor="gray.200" spacing={4}>
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+    </VStack>
   )
 }
 
