@@ -19,13 +19,11 @@ const ShopPage: VFC<any> = ({ snack }) => {
 export default ShopPage
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  console.log('test')
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/snacks/${params?.id}`
   )
 
   const data = await res.json()
-  console.log(data)
   return {
     props: {
       snack: data,
