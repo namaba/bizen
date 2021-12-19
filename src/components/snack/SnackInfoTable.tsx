@@ -1,20 +1,10 @@
-import {
-  Box,
-  Text,
-  chakra,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
+import { Box, chakra, Link, Table, Tbody, Td, Text, Tr } from '@chakra-ui/react'
 import React from 'react'
 import GoogleMap from 'src/components/ui/GoogleMap'
 
 export const ShopInfoTable = ({ snack }: { snack: any }) => {
   return (
-    <Box bgColor="white">
+    <Box bgColor="white" w="full">
       <Text
         borderBottom="1px solid"
         borderBottomColor="gray.200"
@@ -44,8 +34,12 @@ export const ShopInfoTable = ({ snack }: { snack: any }) => {
             </Td>
           </Tr>
           <Tr>
-            <Td whiteSpace="nowrap">ホームページ</Td>
-            <Td>{snack.website}</Td>
+            <Td whiteSpace="nowrap">HP</Td>
+            <Td maxW="250px">
+              <Link href={snack.website} color="teal.500" isExternal>
+                {snack.website}
+              </Link>
+            </Td>
           </Tr>
         </Tbody>
       </Table>
